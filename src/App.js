@@ -2,9 +2,8 @@ import './App.css';
 import Navbar from './components/Navbar';
 import Converter from './components/Converter';
 import Alert from './components/Alert'
-import { useState } from 'react/cjs/react.development';
 // import About from './components/About';
-import React from "react";
+import React,{useState} from "react";
 
 
 function App() {

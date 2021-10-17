@@ -5,12 +5,7 @@ import Alert from './components/Alert'
 import { useState } from 'react/cjs/react.development';
 // import About from './components/About';
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+
 
 function App() {
   const [mode,setMode]=useState("dark");
@@ -29,20 +24,11 @@ function App() {
   }
   return (
     <>
-    {/* <Router> */}
+    
     <Navbar title="Converter" mode={mode} toggleMode={toggleMode} />
     <Alert alert={alert}  />
-      {/* <Switch> */}
-          {/* <Route exact path="/"> */}
-            <Converter mode={mode} />
-          {/* </Route> */}
-          {/* <Route exact path="/about">
-            <About />
-          </Route>
-      </Switch>
-    </Router> */}
-    
-    
+    <Converter mode={mode} />
+ 
     </>
   );
 }

@@ -1,24 +1,49 @@
-import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/Navbar';
+import Converter from './components/Converter';
+import Alert from './components/Alert'
+import { useState } from 'react/cjs/react.development';
+import About from './components/About';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 function App() {
+  const [mode,setMode]=useState("dark");
+  const [alert,setAlert]=useState(false);
+  
+  const toggleMode=()=>{
+    if(mode==="dark"){
+      setMode("light");
+      document.body.style.backgroundColor="white";
+      setAlert(true)
+    }else{
+      setMode("dark");
+      document.body.style.backgroundColor="#171717";
+      setAlert(true)
+    }
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Router>
+    <Navbar title="Converter" mode={mode} toggleMode={toggleMode} />
+    <Alert alert={alert}  />
+      <Switch>
+          <Route exact path="/">
+            <Converter mode={mode} />
+          </Route>
+          <Route exact path="/about">
+            <About />
+          </Route>
+      </Switch>
+    </Router>
+    
+    
+    </>
   );
 }
 

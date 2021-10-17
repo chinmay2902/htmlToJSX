@@ -3,7 +3,7 @@ import Navbar from './components/Navbar';
 import Converter from './components/Converter';
 import Alert from './components/Alert'
 import { useState } from 'react/cjs/react.development';
-import About from './components/About';
+// import About from './components/About';
 import React from "react";
 import {
   BrowserRouter as Router,
@@ -29,18 +29,18 @@ function App() {
   }
   return (
     <>
-    <Router>
+    {/* <Router> */}
     <Navbar title="Converter" mode={mode} toggleMode={toggleMode} />
     <Alert alert={alert}  />
-      <Switch>
-          <Route exact path="/">
+      {/* <Switch> */}
+          {/* <Route exact path="/"> */}
             <Converter mode={mode} />
-          </Route>
-          <Route exact path="/about">
+          {/* </Route> */}
+          {/* <Route exact path="/about">
             <About />
           </Route>
       </Switch>
-    </Router>
+    </Router> */}
     
     
     </>
